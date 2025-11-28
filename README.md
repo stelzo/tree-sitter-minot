@@ -22,7 +22,7 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "minot"
-source = { git = "https://github.com/stelzo/tree-sitter-minot", rev = "main" }
+source = { git = "https://github.com/stelzo/tree-sitter-minot", rev = "7c385399bec5e5266d816ef7479df70663dbba41" }
 ```
 
 **Copy query files to Helix runtime:**
