@@ -1,20 +1,57 @@
 {
   "name": "tree-sitter-minot",
   "version": "0.1.0",
-  "description": "Tree-sitter parser for mt",
+  "description": "Minot Query Language",
+  "repository": "https://github.com/stelzo/tree-sitter-minot",
+  "license": "MIT",
+  "author": {
+    "name": "Christopher Sieh",
+    "email": "stelzo@steado.de"
+  },
   "main": "bindings/node",
+  "types": "bindings/node",
   "keywords": [
-    "parser",
-    "lexer"
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "minot"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
   ],
   "dependencies": {
-    "nan": "^2.14.2"
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.0"
+    "prebuildify": "^6.0.1",
+    "tree-sitter": "^0.22.4"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.22.4"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
   },
   "scripts": {
-    "build": "tree-sitter generate",
-    "test": "tree-sitter test"
-  }
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.minot",
+      "injection-regex": "^minot$"
+    }
+  ]
 }

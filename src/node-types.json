@@ -1,5 +1,47 @@
 [
   {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "boolean",
     "named": true,
     "fields": {}
@@ -23,11 +65,15 @@
       "required": true,
       "types": [
         {
-          "type": "number",
+          "type": "block",
           "named": true
         },
         {
-          "type": "statement",
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         }
       ]
@@ -39,14 +85,27 @@
     "fields": {}
   },
   {
-    "type": "punctuation",
+    "type": "paren_expr",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -67,6 +126,14 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
         {
           "type": "boolean",
           "named": true
@@ -100,11 +167,11 @@
           "named": true
         },
         {
-          "type": "path",
+          "type": "paren_expr",
           "named": true
         },
         {
-          "type": "punctuation",
+          "type": "path",
           "named": true
         },
         {
@@ -133,14 +200,6 @@
   },
   {
     "type": "\"",
-    "named": false
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
     "named": false
   },
   {
@@ -184,17 +243,8 @@
     "named": false
   },
   {
-    "type": "[",
-    "named": false
-  },
-  {
-    "type": "]",
-    "named": false
-  },
-  {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "false",
@@ -213,10 +263,6 @@
     "named": true
   },
   {
-    "type": "loop",
-    "named": false
-  },
-  {
     "type": "number",
     "named": true
   },
@@ -227,6 +273,10 @@
   {
     "type": "pf",
     "named": false
+  },
+  {
+    "type": "punctuation",
+    "named": true
   },
   {
     "type": "quantity",
@@ -247,14 +297,6 @@
   {
     "type": "type_identifier",
     "named": true
-  },
-  {
-    "type": "{",
-    "named": false
-  },
-  {
-    "type": "}",
-    "named": false
   },
   {
     "type": "~",
