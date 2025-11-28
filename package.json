@@ -1,0 +1,20 @@
+{
+  "name": "tree-sitter-minot",
+  "version": "0.1.0",
+  "description": "Tree-sitter parser for mt",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "dependencies": {
+    "nan": "^2.14.2"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  },
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test"
+  }
+}

@@ -1,0 +1,13 @@
+(comment) @comment
+(string) @string
+(path) @string
+(keyword) @keyword
+(boolean) @constant.builtin.boolean
+(function_call) @function
+(quantity) @constant.numeric
+(number) @constant.numeric
+(type_identifier) @type
+(internal_variable) @variable.builtin
+(identifier) @variable
+(operator) @operator
+(punctuation) @punctuation.delimiter
