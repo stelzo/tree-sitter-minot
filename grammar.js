@@ -15,6 +15,12 @@ module.exports = grammar({
         $.comment,
     ],
 
+    conflicts: $ => [
+        [$.internal_variable, $.variable_path],
+        [$.identifier, $.variable_path],
+        [$.variable_path]
+    ],
+
     rules: {
         source_file: $ => repeat($.statement),
 
@@ -60,6 +66,36 @@ module.exports = grammar({
 
         identifier: $ => /[a-zA-Z:][a-zA-Z_:\d]*/,
 
+        // Namespaced variable path (2+ segments): middle parts are namespace segments,
+        // final part is the last segment used for assignment/access
+        namespace_segment_identifier: $ => prec(2, alias($.identifier, 'namespace_segment_identifier')),
+        namespace_segment_internal: $ => prec(2, alias($.internal_variable, 'namespace_segment_internal')),
+
+        path_last_identifier: $ => prec(1, alias($.identifier, 'path_last_identifier')),
+        path_last_internal: $ => prec(1, alias($.internal_variable, 'path_last_internal')),
+
+        // Unified dotted path: handles both 2-segment and 3+ segment dotted paths
+        // Examples: _topic._a (2 segments), _topic.b.a (3 segments)
+        // All segments except the last are namespace segments
+        variable_path: $ => prec.dynamic(2, seq(
+            choice(
+                alias($.identifier, $.namespace_segment_identifier),
+                alias($.internal_variable, $.namespace_segment_internal)
+            ),
+            repeat(seq(
+                '.',
+                choice(
+                    alias($.identifier, $.namespace_segment_identifier),
+                    alias($.internal_variable, $.namespace_segment_internal)
+                )
+            )),
+            '.',
+            choice(
+                alias($.identifier, $.path_last_identifier),
+                alias($.internal_variable, $.path_last_internal)
+            )
+        )),
+
         operator: $ => choice(
             '<-', '->', '=', '==', '..', '+', '-', '~', ',', '.'
         ),
@@ -97,6 +133,13 @@ module.exports = grammar({
             $.block
         )),
 
+        // Namespace block: identifier.identifier.{ ... } or _var.identifier.{ ... } or just identifier.{ ... }
+        namespace_block: $ => prec(4, seq(
+            choice($.variable_path, $.identifier, $.internal_variable),
+            '.',
+            $.block
+        )),
+
         statement: $ => choice(
             $.string,
             $.path,
@@ -106,6 +149,8 @@ module.exports = grammar({
             $.quantity,
             $.number,
             $.type_identifier,
+            $.namespace_block,
+            $.variable_path,
             $.internal_variable,
             $.identifier,
             $.operator,

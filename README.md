@@ -6,9 +6,7 @@ Tree-sitter grammar for the Minot Query Language.
 
 ### Helix
 
-#### Installation
-
-**Configure language in `~/.config/helix/languages.toml`:**
+Configure language in `~/.config/helix/languages.toml`:
 
 ```toml
 [[language]]
@@ -25,23 +23,20 @@ name = "minot"
 source = { git = "https://github.com/stelzo/tree-sitter-minot", rev = "7c385399bec5e5266d816ef7479df70663dbba41" }
 ```
 
-**Copy query files to Helix runtime:**
-
+Copy query files to Helix runtime:
 ```bash
 git clone https://github.com/stelzo/tree-sitter-minot.git /tmp/tree-sitter-minot
 mkdir -p ~/.config/helix/runtime/queries/minot
 cp /tmp/tree-sitter-minot/queries/*.scm ~/.config/helix/runtime/queries/minot/
 ```
 
-**Fetch and build the grammar:**
-
+Fetch and build the grammar:
 ```bash
 hx --grammar fetch
 hx --grammar build
 ```
 
-**Verify installation:**
-
+Verify installation:
 ```bash
 hx --health minot
 ```
@@ -54,8 +49,7 @@ Check the marketplace for the Minot extension.
 
 ## Development
 
-### Prerequisites
-
+Prerequisites:
 - Node.js and npm
 - tree-sitter-cli version 0.23.x (important for Helix compatibility)
 
@@ -65,8 +59,7 @@ Install the correct tree-sitter-cli version:
 npm install -g tree-sitter-cli@0.23
 ```
 
-### Generate Parser
-
+Generate Parser
 ```bash
 tree-sitter generate
 ```

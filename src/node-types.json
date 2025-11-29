@@ -80,6 +80,33 @@
     }
   },
   {
+    "type": "namespace_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "internal_variable",
+          "named": true
+        },
+        {
+          "type": "variable_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operator",
     "named": true,
     "fields": {}
@@ -159,6 +186,10 @@
           "named": true
         },
         {
+          "type": "namespace_block",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -185,6 +216,10 @@
         {
           "type": "type_identifier",
           "named": true
+        },
+        {
+          "type": "variable_path",
+          "named": true
         }
       ]
     }
@@ -193,6 +228,33 @@
     "type": "string",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "variable_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "namespace_segment_identifier",
+          "named": true
+        },
+        {
+          "type": "namespace_segment_internal",
+          "named": true
+        },
+        {
+          "type": "path_last_identifier",
+          "named": true
+        },
+        {
+          "type": "path_last_internal",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "!",
@@ -263,11 +325,43 @@
     "named": true
   },
   {
+    "type": "namespace_segment_identifier",
+    "named": true
+  },
+  {
+    "type": "namespace_segment_identifier",
+    "named": false
+  },
+  {
+    "type": "namespace_segment_internal",
+    "named": true
+  },
+  {
+    "type": "namespace_segment_internal",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
   },
   {
     "type": "path",
+    "named": true
+  },
+  {
+    "type": "path_last_identifier",
+    "named": false
+  },
+  {
+    "type": "path_last_identifier",
+    "named": true
+  },
+  {
+    "type": "path_last_internal",
+    "named": false
+  },
+  {
+    "type": "path_last_internal",
     "named": true
   },
   {
