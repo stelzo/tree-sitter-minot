@@ -43,6 +43,49 @@ hx --health minot
 
 Open a `.mt` file in Helix - syntax highlighting should now work!
 
+### Neovim
+
+Follow the instructions to install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) if it is not already installed.
+Then add a custom filetype for Minot in your `init.lua`
+
+```lua
+-- minot filetype
+vim.filetype.add({
+  extension = {
+    -- Takes path and bufnr as arguments
+    rl = function (_, _)
+      return 'minot', function(bufnr)
+        -- Configure the buffer for minot
+        vim.bo[bufnr].shiftwidth = 2
+        vim.bo[bufnr].tabstop = 2
+        vim.bo[bufnr].expandtab = true
+        pcall(vim.treesitter.start, bufnr, 'minot')
+      end
+    end
+  }
+})
+```
+
+Install the Minot grammer using nvim-treesitter (see [nvim-treesitter: adding custom languages](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#adding-custom-languages) for reference)
+
+```lua
+-- minot tree-sitter-grammar
+vim.api.nvim_create_autocmd('User', {pattern = 'TSUpdate',
+callback = function()
+  require('nvim-treesitter.parsers').minot = {
+    install_info = {
+      url = 'https://github.com/stelzo/tree-sitter-minot',
+      -- Install the provided queries
+      queries = 'queries'
+    }
+  }
+end})
+```
+
+Run `:TSInstall minot` to install the parser and queries.
+
+Now restart Neovim and open a `.rl` file - syntax highlighting should now work!
+
 ### VS Code
 
 Check the marketplace for the Minot extension.
