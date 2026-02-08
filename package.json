@@ -2,7 +2,7 @@
   "name": "tree-sitter-minot",
   "version": "0.1.0",
   "description": "Minot Query Language",
-  "repository": "https://github.com/stelzo/tree-sitter-minot",
+  "repository": "https://codeberg.org/stelzo/tree-sitter-minot",
   "license": "MIT",
   "author": {
     "name": "Christopher Sieh",

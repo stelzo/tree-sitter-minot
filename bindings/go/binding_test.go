@@ -3,8 +3,8 @@ package tree_sitter_minot_test
 import (
 	"testing"
 
+	tree_sitter_minot "codeberg.org/stelzo/tree-sitter-minot/bindings/go"
 	tree_sitter "github.com/tree-sitter/go-tree-sitter"
-	tree_sitter_minot "github.com/stelzo/tree-sitter-minot/bindings/go"
 )
 
 func TestCanLoadGrammar(t *testing.T) {

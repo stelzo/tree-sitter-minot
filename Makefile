@@ -3,7 +3,7 @@ $(error Windows is not supported)
 endif
 
 LANGUAGE_NAME := tree-sitter-minot
-HOMEPAGE_URL := https://github.com/stelzo/tree-sitter-minot
+HOMEPAGE_URL := https://codeberg.org/stelzo/tree-sitter-minot
 VERSION := 0.1.0
 
 # repository

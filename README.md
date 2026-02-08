@@ -20,12 +20,12 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "minot"
-source = { git = "https://github.com/stelzo/tree-sitter-minot", rev = "225dd5200e00cc894b51d94edd3463a3ec466fb5" }
+source = { git = "https://codeberg.org/stelzo/tree-sitter-minot", rev = "225dd5200e00cc894b51d94edd3463a3ec466fb5" }
 ```
 
 Copy query files to Helix runtime:
 ```bash
-git clone https://github.com/stelzo/tree-sitter-minot.git /tmp/tree-sitter-minot
+git clone https://codeberg.org/stelzo/tree-sitter-minot.git /tmp/tree-sitter-minot
 mkdir -p ~/.config/helix/runtime/queries/minot
 cp /tmp/tree-sitter-minot/queries/*.scm ~/.config/helix/runtime/queries/minot/
 ```
@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd('User', {pattern = 'TSUpdate',
 callback = function()
   require('nvim-treesitter.parsers').minot = {
     install_info = {
-      url = 'https://github.com/stelzo/tree-sitter-minot',
+      url = 'https://codeberg.org/stelzo/tree-sitter-minot',
       -- Install the provided queries
       queries = 'queries'
     }

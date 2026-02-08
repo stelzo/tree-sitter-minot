@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "minot"]
 categories = ["parser-implementations", "parsing", "text-editors"]
-repository = "https://github.com/stelzo/tree-sitter-minot"
+repository = "https://codeberg.org/stelzo/tree-sitter-minot"
 edition = "2021"
 autoexamples = false
 

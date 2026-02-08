@@ -1,4 +1,4 @@
-module github.com/stelzo/tree-sitter-minot
+module codeberg.org/stelzo/tree-sitter-minot
 
 go 1.22
 

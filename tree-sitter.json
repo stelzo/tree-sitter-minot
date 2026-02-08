@@ -24,7 +24,7 @@
       }
     ],
     "links": {
-      "repository": "https://github.com/stelzo/tree-sitter-minot"
+      "repository": "https://codeberg.org/stelzo/tree-sitter-minot"
     }
   },
   "bindings": {

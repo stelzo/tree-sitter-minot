@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 project(tree-sitter-minot
         VERSION "0.1.0"
         DESCRIPTION "Minot Query Language"
-        HOMEPAGE_URL "https://github.com/stelzo/tree-sitter-minot"
+        HOMEPAGE_URL "https://codeberg.org/stelzo/tree-sitter-minot"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
